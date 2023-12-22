@@ -9,11 +9,11 @@ function imprimir(texto) {
 }
 
 
-var input = document.querySelector("input");
+let input = document.querySelector("textarea");
 input.focus();
 
 function encriptar() {
-    textoUsuario = document.getElementById("myInput");
+    textoUsuario = document.getElementById("input-to-encript");
     palabra = textoUsuario.value;
     arregloLetras = palabra.split('');
     var textoResultante = "";
@@ -98,7 +98,7 @@ function obtenerOracion() {
     textousuarioEncriptado = textoUsuario.value;
     listadePalabras_Encriptadas = textousuarioEncriptado.split(' ');
     listaVacia = []
-    for (indicePalabra = 0; indicePalabra < listadePalabras_Encriptadas.length; indicePalabra++) { //cuidado con poner igual SALE UN ERROR DE UNDEFINIED INCLUDES
+    for (indicePalabra = 0; indicePalabra < listadePalabras_Encriptadas.length; indicePalabra++) {
         while (listadePalabras_Encriptadas[indicePalabra].includes("enter") || listadePalabras_Encriptadas[indicePalabra].includes("ober") || listadePalabras_Encriptadas[indicePalabra].includes("ai") || listadePalabras_Encriptadas[indicePalabra].includes("ufat") || listadePalabras_Encriptadas[indicePalabra].includes("imes")) {
             listadePalabras_Encriptadas[indicePalabra] = obtenerVocalesencriptadas(listadePalabras_Encriptadas[indicePalabra]);
         }

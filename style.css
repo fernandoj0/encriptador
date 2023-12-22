@@ -1,281 +1,132 @@
 
-.pantallaPrincipal{
-    position: relative;
-    width: 1887px;
-    height: 1024px;
-    background: #F3F5FC;
-
+/* Media query for medium devices */
+@media (min-width: 700px) {
+    .card {
+        width: 90vw;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
 }
 
-    .logoAlura{
-        position: absolute;
-        width: 31.09px;
-        height: 48px;
-        left: 2%;
-        top: 0%;
-        bottom: 0%;
-
-    }
-
-        /*seccion texto entrada y botones*/
-
-    .inpt {
-        position: absolute;
-        width: 680px;
-        height: 67px;
-        left: 280px; 
-        top: 360px;
-
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-        font-style: normal;
-        font-weight: 400;
-        font-size: 16px;
-        text-align: center;
-        line-height: 150%;
-
-
-        color: #0A3871;
-
-    }
-
-    .botones123{
-
-
+@media (max-width: 699px) {
+    .card {
+        width: 90vw;
         display: flex;
-        flex-direction: row;
-        align-items: flex-start;
-        gap: 24px;
-
-        position: absolute;
-        width: 680px;
-        height: 67px;
-        left: 280px;
-        top: 600px;
-
-
+        flex-direction: column;
+        flex-wrap: wrap;
     }
-
-    .btnencript {
-
-
-        /* Auto layout */
-        display: flex;
-        flex-direction: row;
-        align-items: flex-start;
-        gap: 8px;
-
-        width: 328px;
-        height: 67px;
+}
 
 
-        background: #0A3871;
-        border-radius: 24px;
+body {
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,0,0,1) 35%, rgba(0,212,255,1) 100%);
+}
 
-            /* Inside auto layout */
+#first-container,
+#second-container {
+    width: 100%;
+}
 
-        flex: none;
-        order: 0;
-        flex-grow: 0;
+
+/* styles for input */
+
+#input-container {
+    display: flex;
+    justify-content: center;
+}
+
+#input-container textarea {
+    font-size: 1.7rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 7px;
+    width: 100%;
+    height: 50vh;
+}
+
+#botones {
+    display: flex;
+    justify-content: space-between;
+    margin: 7px;
+}
+
+
+
+button {
+    font-family: 'Inter', sans-serif;
+    padding: 0.6em 2em;
+    border: none;
+    outline: none;
+    color: rgb(255, 255, 255);
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+  
+  button:before {
+    content: "";
+    background: linear-gradient(
+      45deg,
+      #ff0000,
+      #ff7300,
+      #fffb00,
+      #48ff00,
+      #00ffd5,
+      #002bff,
+      #7a00ff,
+      #ff00c8,
+      #ff0000
+    );
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing-button-85 20s linear infinite;
+    transition: opacity 0.3s ease-in-out;
+    border-radius: 10px;
+  }
+  
+  @keyframes glowing-button-85 {
+    0% {
+      background-position: 0 0;
     }
-
-
-    .btndsncrpt {
-
-        
-        box-sizing: border-box;
-
-
-        display: flex;
-        flex-direction: row;
-        align-items: flex-start;
-        gap: 8px; /*mantiene los botones separados*/
-
-        width: 328px;
-        height: 67px;
-
-
-        background: #D8DFE8;
-
-        border: 1px solid #0A3871;
-        border-radius: 24px;
-
-
-        flex: none;
-        order: 1;
-        flex-grow: 0;    
-    
-        
+    50% {
+      background-position: 400% 0;
     }
-
-    #btn3{
-
-
-        display: flex;
-        flex-direction: row;
-        align-items: flex-start;
-        
-
-        position: absolute;
-        width: 328px;
-        height: 67px;
-        left: 25%;
-        top: 150%;
-            
-
-        background: #dfc5f0;
-
-        border: 1px solid #25023d;
-        border-radius: 24px;
-
-
-        flex: none;
-        order: 1;
-        flex-grow: 0;
+    100% {
+      background-position: 0 0;
     }
-
-    
-    .textoencrpt{
-
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-        font-style: normal;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 19px;
-        text-align: center;
-
-
-        color: #FFFFFF;
-
-
-        flex: none;
-        order: 0;
-        flex-grow: 1;
-    }
+  }
+  
+  button:after {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #222;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+  }
 
 
-    .textodesncrpt{
-
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-        font-style: normal;
-        font-weight: 400;
-        font-size: 16px;
-        line-height:19px;
-        text-align: center;
-
-
-        color: #0A3871;
-
-
-
-        flex: none;
-        order: 0;
-        flex-grow: 1;
-
-
-    }
-
-
-
-    .textocp{
-
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-        font-style: normal;
-        font-weight: 400;
-        font-size: 16px;
-        text-align: center;
-
-
-        color: #000000;
-
-
-        flex: none;
-        order: 0;
-        flex-grow: 1;
-
-
-    }
-
-
-
-
-
-
-
-    /* seccion de texto de salida*/
-
-
-
-
-    .cajaoutpt{
-
-        position: absolute;
-        width: 400px;
-        height: 944px;
-        left: 1200px;
-        top: 40px;
-
-
-        background: #FFFFFF;
-
-        box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
-        border-radius: 32px;
-
-    }
-
-
-
-    .textboxoutpt{
-
-
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-        font-style: normal;
-        font-weight: 700;
-        font-size: 20px;
-        line-height: 120%;
-
-        margin-top: auto;
-        margin-left: 5%;
-        width: 90%;
-        height: 90%;
-        text-align: center;
-        overflow-wrap: break-word;
-
-
-
-        color: #343A40;
-
-
-
-        flex: none;
-        order: 0;
-        align-self: stretch;
-        flex-grow: 0;
-    }
-
-    #aviso {
-        margin-top: 400px;
-    }
-        
-
-    
-
-    .figmuneco {
-
-        /* Mueco */
-        position: absolute;
-        width: 336px;
-        height: 304px;
-        margin-left: 10%;
-    }
-    
-    
-
-
-
-        
-
-    
-
+.cajaoutpt {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
 
 
