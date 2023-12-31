@@ -3,8 +3,12 @@
 
 <head>
     <meta charset='UTF-8' />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Encriptador</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -13,31 +17,34 @@
             <h1><img src="assets/img/Vector.png" alt="logo_alura.png"></h1>
         </div>
     </header>
+
     <main>
-
-        <section>
-            <input type=text placeholder="Ingresa el texto a encriptar o desencriptar" id="myInput" class="inpt" />
-
-            <div class="botones123">
-                <button id="btn1" type="button" onclick=encriptar() class="btnencript">
-                    <p class="textoencrpt">Encripta</p>
-                </button>
-                <button id="btn2" type="button" onclick=obtenerOracion() class="btndsncrpt">
-                    <p class="textodesncrpt">Desencripta</p>
-                </button>
-                <button id="btn3" type="button" onclick=copiar() class="btncp">
-                    <p class="textocp">Copia</p>
-                </button>
-            </div>
-        </section>
-        <section>
-            <div class="cajaoutpt">
-                <div class="figmuneco" id="imagenMuneco">
-                    <img src="assets/img/Muneco.png" alt="Muneco.png">
+        <section class="card">
+            <div id="first-container" class="card-item">
+                
+                <div id="botones">
+                    <button id="btn1" type="button" onclick=encriptar() class="btnencript">
+                        <p class="textoencrpt">Encripta</p>
+                    </button>
+                    <button id="btn2" type="button" onclick=obtenerOracion() class="btndsncrpt">
+                        <p class="textodesncrpt">Desencripta</p>
+                    </button>
+                    <button id="btn3" type="button" onclick=copiar() class="btncp">
+                        <p class="textocp">Copia</p>
+                    </button>
                 </div>
-
-                <div class="textboxoutpt" id="output" type=text value="">
-                    <p id="aviso">Ningun mensaje fue encontrado</p>
+                <div id="input-container">
+                    <textarea id="input-to-encript" name="description" minlength="100" maxlength="400" required></textarea>
+                </div>
+            </div>
+            <div id="second-container" class="card-item">
+                <div class="cajaoutpt">
+                    <div class="figmuneco" id="imagenMuneco">
+                        <img src="assets/img/Muneco.png" alt="Muneco.png">
+                    </div>
+                    <div class="textboxoutpt" id="output" type=text value="">
+                        <p id="aviso">Ningun mensaje fue encontrado</p>
+                    </div>
                 </div>
             </div>
         </section>
