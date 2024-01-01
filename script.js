@@ -94,7 +94,7 @@ function obtenerVocalesencriptadas(palabra) {
 
 function obtenerOracion() {
     var textoResultante = "";
-    textoUsuario = document.querySelector("input");
+    textoUsuario = document.getElementById("input-to-encript");
     textousuarioEncriptado = textoUsuario.value;
     listadePalabras_Encriptadas = textousuarioEncriptado.split(' ');
     listaVacia = []
@@ -116,9 +116,9 @@ function obtenerOracion() {
 
 
 function copiar() {
-    var textoc = document.getElementById("output").value;
-    console.log(textoc)
-    document.getElementById("myInput").value = textoc;
+    let textoc = document.getElementById("output").value;
+    console.log(textoc);
+    document.getElementById("input-to-encript").value = textoc;
 
 }
 
