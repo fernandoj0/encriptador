@@ -1,124 +1,121 @@
-function saltarLinea() {
-    document.write("<br>");
-    document.write("<br>");
-    document.write("<br>");
-}
-function imprimir(texto) {
-    document.write(texto);
-    saltarLinea();
-}
-
-
 let input = document.querySelector("textarea");
 input.focus();
 
-function encriptar() {
-    textoUsuario = document.getElementById("input-to-encript");
-    palabra = textoUsuario.value;
-    arregloLetras = palabra.split('');
-    var textoResultante = "";
-    for (inidiceLetra = 0; inidiceLetra <= arregloLetras.length; inidiceLetra++) {
+function encrypt() {
+    const userText = document.getElementById("text-to-change");
+    let sentence = userText.value;
+    let trimmedValue = sentence.trim();
+    if (trimmedValue == '') {
+        input.focus();
+    } else {
+        let arrayOfChar = sentence.split('');
+    let outputText = "";
+    for (let i = 0; i <= arrayOfChar.length; i++) {
 
-        if (arregloLetras[inidiceLetra] == "e") {
-            arregloLetras[inidiceLetra] = "enter"
+        if (arrayOfChar[i] == "e") {
+            arrayOfChar[i] = "enter"
         }
-        else if (arregloLetras[inidiceLetra] == "i") {
-            arregloLetras[inidiceLetra] = "imes"
+        else if (arrayOfChar[i] == "i") {
+            arrayOfChar[i] = "imes"
         }
-        else if (arregloLetras[inidiceLetra] == "a") {
-            arregloLetras[inidiceLetra] = "ai"
+        else if (arrayOfChar[i] == "a") {
+            arrayOfChar[i] = "ai"
         }
-        else if (arregloLetras[inidiceLetra] == "o") {
-            arregloLetras[inidiceLetra] = "ober"
+        else if (arrayOfChar[i] == "o") {
+            arrayOfChar[i] = "ober"
         }
-        else if (arregloLetras[inidiceLetra] == "u") {
-            arregloLetras[inidiceLetra] = "ufat"
+        else if (arrayOfChar[i] == "u") {
+            arrayOfChar[i] = "ufat"
         }
     }
-    palabraEncriptada = arregloLetras.join('');
-    textoResultante += palabraEncriptada;
-    document.getElementById("output").innerHTML = textoResultante;
-    document.getElementById("output").value = textoResultante;
+    let encryptText = arrayOfChar.join('');
+    outputText += encryptText;
+    document.getElementById("output").innerHTML = outputText;
+    document.getElementById("output").value = outputText;
     document.getElementById("imagenMuneco").style.display = "none";
     input.focus();
+    }
 }
 
 
-function obtenerVocalesencriptadas(palabra) {
-
-    while (palabra.includes("ufat")) {
-        arregloLetras = palabra.split('')
-
-        posicionUfat = palabra.indexOf('ufat');
-
-        arregloLetras.splice(posicionUfat + 1, 3);
-
-        palabra = arregloLetras.join('');
-
+function getEncryptedVowels(word) {
+    while (word.includes("ufat")) {
+        let arrayOfChar = word.split('')
+        let ufatIndex = word.indexOf('ufat');
+        arrayOfChar.splice(ufatIndex + 1, 3);
+        word = arregloLetras.join('');
+    }
+    while (word.includes("ai")) {
+        let arrayOfChar = word.split('')
+        let aiIndex = word.indexOf('ai');
+        arrayOfChar.splice(aiIndex + 1, 1);
+        word = arrayOfChar.join('');
     }
 
-    while (palabra.includes("ai")) {
-        arregloLetras = palabra.split('')
-
-        posicionAi = palabra.indexOf('ai');
-
-        arregloLetras.splice(posicionAi + 1, 1);
-
-        palabra = arregloLetras.join('');
+    while (word.includes("ober")) {
+        let arrayOfChar = word.split('')
+        let oberIndex = word.indexOf('ober');
+        arrayOfChar.splice(oberIndex + 1, 3);
+        word = arrayOfChar.join('');
     }
 
-    while (palabra.includes("ober")) {
-        arregloLetras = palabra.split('')
-        posicionOber = palabra.indexOf('ober');
-        arregloLetras.splice(posicionOber + 1, 3);
-        palabra = arregloLetras.join('');
+    while (word.includes("enter")) {
+        let arrayOfChar = word.split('')
+        let enterIndex = word.indexOf('enter');
+        arrayOfChar.splice(enterIndex + 1, 4);
+        word = arrayOfChar.join('');
     }
 
-    while (palabra.includes("enter")) {
-        arregloLetras = palabra.split('')
-        posicionEnter = palabra.indexOf('enter');
-        arregloLetras.splice(posicionEnter + 1, 4);
-        palabra = arregloLetras.join('');
+    while (word.includes("imes")) {
+        let arrayOfChar = word.split('')
+        let imesIndex = word.indexOf('imes');
+        arrayOfChar.splice(imesIndex + 1, 3);
+        word = arrayOfChar.join('');
     }
-
-    while (palabra.includes("imes")) {
-        arregloLetras = palabra.split('')
-        posicionImes = palabra.indexOf('imes');
-        arregloLetras.splice(posicionImes + 1, 3);
-        palabra = arregloLetras.join('');
-    }
-    return (palabra)
+    return (word)
 }
 
 
 
-function obtenerOracion() {
-    var textoResultante = "";
-    textoUsuario = document.getElementById("input-to-encript");
-    textousuarioEncriptado = textoUsuario.value;
-    listadePalabras_Encriptadas = textousuarioEncriptado.split(' ');
-    listaVacia = []
-    for (indicePalabra = 0; indicePalabra < listadePalabras_Encriptadas.length; indicePalabra++) {
-        while (listadePalabras_Encriptadas[indicePalabra].includes("enter") || listadePalabras_Encriptadas[indicePalabra].includes("ober") || listadePalabras_Encriptadas[indicePalabra].includes("ai") || listadePalabras_Encriptadas[indicePalabra].includes("ufat") || listadePalabras_Encriptadas[indicePalabra].includes("imes")) {
-            listadePalabras_Encriptadas[indicePalabra] = obtenerVocalesencriptadas(listadePalabras_Encriptadas[indicePalabra]);
+function decryptSentence() {
+    let outputText = "";
+    let userText = document.getElementById("text-to-change");
+    let encryptedUserText = userText.value;
+    let arrayEncryptedWords = encryptedUserText.split(' ');
+    let arrayOfDecryptedWords = [];
+    for (let i = 0; i < arrayEncryptedWords.length; i++) {
+        while (arrayEncryptedWords[i].includes("enter") || arrayEncryptedWords[i].includes("ober") || arrayEncryptedWords[i].includes("ai") || arrayEncryptedWords[i].includes("ufat") || arrayEncryptedWords[i].includes("imes")) {
+            arrayEncryptedWords[i] = getEncryptedVowels(arrayEncryptedWords[i]);
         }
-        listaVacia.push(listadePalabras_Encriptadas[indicePalabra]);
+        arrayOfDecryptedWords.push(arrayEncryptedWords[i]);
     }
-    oracionNormal = listaVacia.join(' ')
-    textoResultante += oracionNormal;
-    document.getElementById("output").innerHTML = textoResultante;
-    document.getElementById("output").value = textoResultante;
+    let decryptedSentence = arrayOfDecryptedWords.join(' ')
+    outputText += decryptedSentence;
+    document.getElementById("output").innerHTML = outputText;
+    document.getElementById("output").value = outputText;
     input.focus();
 }
 
 
-
-
-
-function copiar() {
+function copy() {
     let textoc = document.getElementById("output").value;
     console.log(textoc);
-    document.getElementById("input-to-encript").value = textoc;
+    document.getElementById("text-to-change").value = textoc;
 
 }
+
+let anchorWhatsapp = document.getElementById("share-to-whatsapp");
+anchorWhatsapp.addEventListener("click", function(event) {
+    let encryptedText = document.getElementById("output").value;
+    if (encryptedText == undefined  && encryptedText == "Ningún mensaje fue encontrado") {
+        console.log("entre aqui");
+        let alertMessage = document.getElementById("share-description");
+        alertMessage.innerHTML = "Aún no encriptas nada";
+    }
+    else {
+        console.log(encryptedText);
+        anchorWhatsapp.setAttribute('href', `https://wa.me/?text=${encryptedText}`);
+    }
+});
+
 

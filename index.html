@@ -22,19 +22,22 @@
         <section class="card">
             <div id="first-container" class="card-item">
                 <div id="botones">
-                    <button id="btn1" type="button" onclick=encriptar() class="btnencript">
+                    <button id="btn1" onclick=encrypt()>
                         <p class="textoencrpt">Encripta</p>
                     </button>
-                    <button id="btn2" type="button" onclick=obtenerOracion() class="btndsncrpt">
+                    <button id="btn2" onclick=decryptSentence()>
                         <p class="textodesncrpt">Desencripta</p>
                     </button>
-                    <button id="btn3" type="button" onclick=copiar() class="btncp">
+                    <button id="btn3" onclick=copy()>
                         <p class="textocp">Copia</p>
                     </button>
                 </div>
                 <div id="input-container">
-                    <textarea id="input-to-encript" name="description" minlength="100" maxlength="400"
-                        required></textarea>
+                    <textarea id="text-to-change" name="description" minlength="100" maxlength="400" required></textarea>
+                </div>
+                <div id="external-share">
+                    <p id="share-description">Envíaselo a un amigo y prueba si puede descifrarlo</p>
+                    <a id="share-to-whatsapp" target="_blank"><img src="./assets/img/icons8-whatsapp-light.svg"/></a>
                 </div>
             </div>
             <div id="second-container" class="card-item">
